@@ -1,0 +1,23 @@
+# Files to exclude from deployment
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+*.log
+.DS_Store
+.git/
+.gitignore
+*.md
+tests/
+examples/
+*.sh
+run*.py
+setup*.py
+find_*.py
+verify_*.py
+fix_*.py
+

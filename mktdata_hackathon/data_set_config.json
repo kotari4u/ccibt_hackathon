@@ -1,0 +1,406 @@
+{
+    "dataset_config": {
+      "project_id": "ccibt-hack25ww7-736",
+      "dataset_name": "market_data",
+      "description": "BigQuery Dataset Configuration for market_data in CCIBT Global Hackathon project",
+      "tables": {
+        "sample_ticker_data": {
+          "table_name": "sample_ticker_data",
+          "description": "Historical 30-year stock market data (OHLCV, possibly with splits and dividends)",
+          "schema": [
+            {
+              "name": "date",
+              "type": "DATE",
+              "mode": "REQUIRED",
+              "description": "Date of the market data"
+            },
+            {
+              "name": "symbol",
+              "type": "STRING",
+              "mode": "REQUIRED",
+              "description": "Trading symbol of the stock"
+            },
+            {
+              "name": "open",
+              "type": "FLOAT",
+              "mode": "NULLABLE",
+              "description": "Opening price"
+            },
+            {
+              "name": "high",
+              "type": "FLOAT",
+              "mode": "NULLABLE",
+              "description": "Highest price during the trading day"
+            },
+            {
+              "name": "low",
+              "type": "FLOAT",
+              "mode": "NULLABLE",
+              "description": "Lowest price during the trading day"
+            },
+            {
+              "name": "close",
+              "type": "FLOAT",
+              "mode": "NULLABLE",
+              "description": "Closing price"
+            },
+            {
+              "name": "volume",
+              "type": "INTEGER",
+              "mode": "NULLABLE",
+              "description": "Volume of shares traded"
+            }
+          ]
+        },
+        "US_Economic_Indicators": {
+          "table_name": "US_Economic_Indicators",
+          "description": "Various US economic indicators",
+          "schema": [
+            {
+              "name": "indicator_date",
+              "type": "DATE",
+              "mode": "REQUIRED",
+              "description": "Date for the economic indicator"
+            },
+            {
+              "name": "indicator_name",
+              "type": "STRING",
+              "mode": "REQUIRED",
+              "description": "Name of the economic indicator (e.g., GDP, CPI, Unemployment Rate)"
+            },
+            {
+              "name": "value",
+              "type": "FLOAT",
+              "mode": "NULLABLE",
+              "description": "Value of the economic indicator"
+            },
+            {
+              "name": "unit",
+              "type": "STRING",
+              "mode": "NULLABLE",
+              "description": "Unit of measurement for the indicator value"
+            }
+          ]
+        },
+        "acquisitions_update_2021": {
+          "table_name": "acquisitions_update_2021",
+          "description": "Updates on corporate acquisitions in 2021",
+          "schema": [
+            {
+              "name": "acquisition_date",
+              "type": "DATE",
+              "mode": "REQUIRED",
+              "description": "Date of acquisition"
+            },
+            {
+              "name": "acquiring_company",
+              "type": "STRING",
+              "mode": "REQUIRED",
+              "description": "Company that acquired another"
+            },
+            {
+              "name": "acquired_company",
+              "type": "STRING",
+              "mode": "REQUIRED",
+              "description": "Company that was acquired"
+            },
+            {
+              "name": "deal_value_usd",
+              "type": "BIGNUMERIC",
+              "mode": "NULLABLE",
+              "description": "Value of the acquisition deal in USD"
+            },
+            {
+              "name": "deal_type",
+              "type": "STRING",
+              "mode": "NULLABLE",
+              "description": "Type of deal (e.g., Merger, Acquisition)"
+            }
+          ]
+        },
+        "analyst_ratings_processed": {
+          "table_name": "analyst_ratings_processed",
+          "description": "Processed analyst ratings for various stocks",
+          "schema": [
+            {
+              "name": "report_date",
+              "type": "DATE",
+              "mode": "NULLABLE",
+              "description": "Date of the analyst report"
+            },
+            {
+              "name": "firm",
+              "type": "STRING",
+              "mode": "NULLABLE",
+              "description": "Analyst firm name"
+            },
+            {
+              "name": "symbol",
+              "type": "STRING",
+              "mode": "REQUIRED",
+              "description": "Trading symbol of the rated stock"
+            },
+            {
+              "name": "rating",
+              "type": "STRING",
+              "mode": "NULLABLE",
+              "description": "Analyst rating (e.g., Buy, Hold, Sell)"
+            },
+            {
+              "name": "price_target",
+              "type": "FLOAT",
+              "mode": "NULLABLE",
+              "description": "Analyst's price target for the stock"
+            }
+          ]
+        },
+        "communications": {
+          "table_name": "communications",
+          "description": "Corporate communications or news releases",
+          "schema": [
+            {
+              "name": "communication_id",
+              "type": "STRING",
+              "mode": "REQUIRED",
+              "description": "Unique identifier for the communication"
+            },
+            {
+              "name": "publish_date",
+              "type": "TIMESTAMP",
+              "mode": "NULLABLE",
+              "description": "Date and time of publication"
+            },
+            {
+              "name": "company_symbol",
+              "type": "STRING",
+              "mode": "NULLABLE",
+              "description": "Symbol of the company related to the communication"
+            },
+            {
+              "name": "headline",
+              "type": "STRING",
+              "mode": "NULLABLE",
+              "description": "Headline of the communication"
+            },
+            {
+              "name": "body_text",
+              "type": "STRING",
+              "mode": "NULLABLE",
+              "description": "Full text body of the communication"
+            }
+          ]
+        },
+        "dataset_summary": {
+          "table_name": "dataset_summary",
+          "description": "Summary or metadata about the entire dataset or its components",
+          "schema": [
+            {
+              "name": "summary_date",
+              "type": "DATE",
+              "mode": "NULLABLE",
+              "description": "Date of the summary record"
+            },
+            {
+              "name": "table_name",
+              "type": "STRING",
+              "mode": "NULLABLE",
+              "description": "Name of the table being summarized"
+            },
+            {
+              "name": "row_count",
+              "type": "INTEGER",
+              "mode": "NULLABLE",
+              "description": "Number of rows in the table"
+            },
+            {
+              "name": "last_updated",
+              "type": "TIMESTAMP",
+              "mode": "NULLABLE",
+              "description": "Timestamp of the last update to the table"
+            },
+            {
+              "name": "description",
+              "type": "STRING",
+              "mode": "NULLABLE",
+              "description": "Description of the table or summary"
+            }
+          ]
+        },
+        "indexData": {
+          "table_name": "indexData",
+          "description": "Data for various market indices (e.g., S&P 500, NASDAQ)",
+          "schema": [
+            {
+              "name": "date",
+              "type": "DATE",
+              "mode": "REQUIRED",
+              "description": "Date for the index data"
+            },
+            {
+              "name": "index_symbol",
+              "type": "STRING",
+              "mode": "REQUIRED",
+              "description": "Symbol of the market index (e.g., ^GSPC for S&P 500)"
+            },
+            {
+              "name": "open",
+              "type": "FLOAT",
+              "mode": "NULLABLE",
+              "description": "Opening value of the index"
+            },
+            {
+              "name": "high",
+              "type": "FLOAT",
+              "mode": "NULLABLE",
+              "description": "Highest value of the index"
+            },
+            {
+              "name": "low",
+              "type": "FLOAT",
+              "mode": "NULLABLE",
+              "description": "Lowest value of the index"
+            },
+            {
+              "name": "close",
+              "type": "FLOAT",
+              "mode": "NULLABLE",
+              "description": "Closing value of the index"
+            },
+            {
+              "name": "volume",
+              "type": "INTEGER",
+              "mode": "NULLABLE",
+              "description": "Volume associated with the index (if applicable)"
+            }
+          ]
+        },
+        "sp500_companies": {
+          "table_name": "sp500_companies",
+          "description": "List and details of companies currently in the S&P 500 index",
+          "schema": [
+            {
+              "name": "symbol",
+              "type": "STRING",
+              "mode": "REQUIRED",
+              "description": "Stock symbol of the company"
+            },
+            {
+              "name": "company_name",
+              "type": "STRING",
+              "mode": "NULLABLE",
+              "description": "Full name of the company"
+            },
+            {
+              "name": "sector",
+              "type": "STRING",
+              "mode": "NULLABLE",
+              "description": "Industry sector of the company"
+            },
+            {
+              "name": "industry",
+              "type": "STRING",
+              "mode": "NULLABLE",
+              "description": "Specific industry within the sector"
+            },
+            {
+              "name": "headquarters",
+              "type": "STRING",
+              "mode": "NULLABLE",
+              "description": "Headquarters location"
+            },
+            {
+              "name": "date_added",
+              "type": "DATE",
+              "mode": "NULLABLE",
+              "description": "Date company was added to S&P 500"
+            }
+          ]
+        },
+        "stock_news": {
+          "table_name": "stock_news",
+          "description": "News articles related to stocks, potentially with sentiment",
+          "schema": [
+            {
+              "name": "news_id",
+              "type": "STRING",
+              "mode": "REQUIRED",
+              "description": "Unique identifier for the news article"
+            },
+            {
+              "name": "publish_time",
+              "type": "TIMESTAMP",
+              "mode": "NULLABLE",
+              "description": "Date and time the news was published"
+            },
+            {
+              "name": "symbol",
+              "type": "STRING",
+              "mode": "NULLABLE",
+              "description": "Stock symbol related to the news"
+            },
+            {
+              "name": "title",
+              "type": "STRING",
+              "mode": "NULLABLE",
+              "description": "Title of the news article"
+            },
+            {
+              "name": "summary",
+              "type": "STRING",
+              "mode": "NULLABLE",
+              "description": "Summary or snippet of the news article"
+            },
+            {
+              "name": "source",
+              "type": "STRING",
+              "mode": "NULLABLE",
+              "description": "Source of the news (e.g., Bloomberg, Reuters)"
+            },
+            {
+              "name": "sentiment_score",
+              "type": "FLOAT",
+              "mode": "NULLABLE",
+              "description": "Sentiment score of the news (e.g., -1.0 to 1.0)"
+            }
+          ]
+        },
+        "symbols_valid_meta": {
+          "table_name": "symbols_valid_meta",
+          "description": "Metadata for valid trading symbols",
+          "schema": [
+            {
+              "name": "symbol",
+              "type": "STRING",
+              "mode": "REQUIRED",
+              "description": "Trading symbol"
+            },
+            {
+              "name": "company_name",
+              "type": "STRING",
+              "mode": "NULLABLE",
+              "description": "Associated company name"
+            },
+            {
+              "name": "exchange",
+              "type": "STRING",
+              "mode": "NULLABLE",
+              "description": "Exchange where the symbol is traded"
+            },
+            {
+              "name": "asset_type",
+              "type": "STRING",
+              "mode": "NULLABLE",
+              "description": "Type of asset (e.g., Stock, ETF)"
+            },
+            {
+              "name": "currency",
+              "type": "STRING",
+              "mode": "NULLABLE",
+              "description": "Currency in which the asset is traded"
+            }
+          ]
+        }
+      }
+    }
+  }
+  
