@@ -1,0 +1,10 @@
+# Vertex AI Agent Engine Configuration
+# This file helps configure the deployment
+
+runtime: python312
+entrypoint: uvicorn src.api.main:app --host 0.0.0.0 --port 8080
+
+env_variables:
+  LOG_LEVEL: INFO
+  LOG_FORMAT: json
+
